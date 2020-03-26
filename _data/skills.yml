@@ -1,0 +1,30 @@
+- name: Programmer
+  keywords:
+      - C/C++
+      - Java
+      - Video Game
+      - Graphic Rendering
+      - Unity
+      - Algorithm
+      - Operating System
+      - Network
+
+- name: Manager
+  keywords:
+      - Leadership
+      - Process Management
+      - Technical Judgment
+      - Identify Risks
+
+- name: English
+  keywords:
+      - Reading
+      - Verbal
+      - CET-6
+
+- name: Characteristics
+  keywords:
+      - Diligent
+      - Sincere
+      - Hard-working
+

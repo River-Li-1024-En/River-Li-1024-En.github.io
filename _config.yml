@@ -1,0 +1,125 @@
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+baseurl:
+url: https://river-li-1024-en.github.io
+date_format: "ordinal"
+title: River.Li
+subtitle: "River's Blog"
+description: "Site for representing personal skills and thinkings."
+keywords: River, Programmer, Online Video Game
+timezone: Asia/Beijing
+encoding: "utf-8"
+side_bar_repo_limit: 5
+
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: River.Li
+organization: 
+organization_url: 
+github_username: River.Li
+location: Beijing, China
+email: john.lee.ncist@gmail.com
+
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: Home
+
+  -
+    href: /categories/
+    label: Categories
+
+#   -
+#     href: /archives/
+#     label: 归档
+
+  -
+    href: /books/
+    label: Books
+
+  -
+    href: /links/
+    label: Links
+
+  -
+    href: /about/
+    label: About
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
+markdown: kramdown
+kramdown:
+    input: GFM
+highlighter: rouge
+paginate: 10
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - jekyll-github-metadata
+    - rouge
+#     - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+#     - jekyll-mentions
+collections:
+    books:
+        output: true
+        permalink: /books/:path/
+
+repository: River_Li_1024/River_Li_1024.github.io
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, gitalk
+comments_provider: gitalk
+# !!!重要!!! 请修改下面这些信息为你自己申请的
+# !!!Important!!! Please modify infos below to yours
+# https://disqus.com
+disqus:
+    username: 
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+    owner: 
+    repo: 
+    oauth:
+        client_id: 
+        client_secret: 
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: River-Li-1024
+    repo: River-Li-1024.github.io
+    clientID: 5f1231bcc0b68db84307
+    clientSecret: 79479dd963ef5f3976ec9750263544d9930c1545
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : false
+
+# ---------------- #
+#      Search      #
+# ---------------- #
+simple_jekyll_search:
+    # 是否支持全文搜索
+    fulltext: false
+    # 最多显示多少条搜索结果
+    limit: 10
+
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: 
