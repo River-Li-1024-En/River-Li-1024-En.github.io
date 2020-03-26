@@ -24,7 +24,7 @@ The logic of skills is divided into 7 sections, which are:
 + Section-Custom: id can be customized and triggered by gotosection, which is equivalent to procedure call;
 + Section-custom event: id can be customized, triggered by sendevent, and executed concurrently with other sections;
 
-! [Section structure](/images/posts/visualskilleditor/guild-sections.png)
+![Section structure](/images/posts/visualskilleditor/guild-sections.png)
 
 ## Instruction
 
@@ -38,20 +38,20 @@ All event instructions are divided into 7 instruction groups, which are:
 + Instruction-effect: operation effect (impact);
 + Instruction-tool: auxiliary instruction, only for editor;
 
-! [Event instruction list 1](/images/posts/visualskilleditor/guild-actions1.png)
-! [Event instruction list 1](/images/posts/visualskilleditor/guild-actions2.png)
+![Event instruction list 1](/images/posts/visualskilleditor/guild-actions1.png)
+![Event instruction list 1](/images/posts/visualskilleditor/guild-actions2.png)
 
 ** Condition instruction ** abstracts some possible judgment conditions in logic control, and is used to modify the execution trajectory of skills during runtime.
 > Conditional instructions only return true/false for control instructions in event instructions;
 > Only the individual necessary conditions are independent instructions, so the number of conditional instructions needs to be strictly controlled.
 In project practice, it is found that most planning is difficult to manage overly complex control logic, so in the design tends to build conditions into event instructions (as a parameter).
 
-! [Conditional instruction list](/images/posts/visualskilleditor/guild-conds.png)
+![Conditional instruction list](/images/posts/visualskilleditor/guild-conds.png)
 
 ## Parameter
 
 Each instruction has multiple parameters, which are described by key-value. Take scancircle as an example:
-! [Parameter Description](/images/posts/visualskilleditor/guild-params.png)
+![Parameter Description](/images/posts/visualskilleditor/guild-params.png)
 As shown in the figure, the parameters specify the data type and scope of this instruction, as well as information such as whether to force configuration.
 
 The above screenshot is from the [instruction set description file](https://github.com/River-Li-1024/VisualSkillEditor/blob/master/Bin/Config/SkillSpec.xml)
@@ -80,7 +80,7 @@ Use the following instructions to jump to the custom logic;
 
 ### How to implement parallel logic
 > Sometimes you want your skills to run in multiple timelines in parallel, as shown below:
->! [Parallel](/images/posts/visualskilleditor/concurrent.png)
+>![Parallel](/images/posts/visualskilleditor/concurrent.png)
 > The sendevent (trigger event) instruction can achieve this function, and the logic that needs to run concurrently is organized as an on node, as shown in the "skill logic structure" in the figure above. This instruction can also be used to send various instructions to the game to trigger other game systems, such as scene effects, plot logic, etc .; the following instructions can be used to trigger parallel logic in parallel;
 `` `xml
 <action id = "sendevent" eventid = "evt_name" />

@@ -12,7 +12,7 @@ keywords: combat,skill,editor
 -[Instruction Set](#Instruction-Set)
 
 ## Main
-! [Main interface](/images/posts/visualskilleditor/editor-main.png)
+![Main interface](/images/posts/visualskilleditor/editor-main.png)
 
 The role of each part in the editing interface is as follows:
 + ** Skill List: **

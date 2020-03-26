@@ -37,7 +37,7 @@ The following is a complete set of UML class diagrams. As shown in the figure, t
 ** Call Skill **
 1. The external environment only needs to call the interface on SkillInst to drive all the skills.
 
-! [Static logic implementation](/images/posts/visualskilleditor/runtime.png)
+![Static logic implementation](/images/posts/visualskilleditor/runtime.png)
 
 ## Source
 is coming ...
@@ -52,7 +52,7 @@ The above runtime environment is suitable for most situations, but there may be 
 #### 1. An implementation similar to the processor instruction set:
 Before the processor executes the CPU instruction, the compiler flattens its control statement into a sequential instruction queue for the abstract syntax tree, and completes the symbol resolution and relocation on it, so that the execution engine only needs to execute the sequence one by one without parsing. Data (similar to assembly code). This allows subsequent instructions to be executed one by one in order to manage the configuration data and recursively execute the syntax tree. Convert the xml file to a two-dimensional sequential instruction queue in txt format, as shown in the figure below:
 
-! [Sequence instruction file](/images/posts/visualskilleditor/sequences.png)
+![Sequence instruction file](/images/posts/visualskilleditor/sequences.png)
 
 > About CPU instruction set [reference](https://en.wikipedia.org/wiki/Instruction_set_architecture)
 > The compiler link process can be [reference] (https://en.wikipedia.org/wiki/Linker_ (computing) #Relocation)
@@ -62,7 +62,7 @@ Before the processor executes the CPU instruction, the compiler flattens its con
 ** 2.1 Flatten Control Statements **
 
 All if/while/for/switch control statements can be implemented with goto. The following are the jump instruction versions of if, do-while, while, for, and switch:
-! [Control statement](/images/posts/visualskilleditor/control-flow.png)
+![Control statement](/images/posts/visualskilleditor/control-flow.png)
 
 The implementation algorithm can refer to the editor source code
 `` `cpp
@@ -97,7 +97,7 @@ The implementation is similar to the CPU execution instruction process, which ca
 > 1. Calculate the address of the next instruction
 
 This algorithm is very simple, the code does not exceed 200 lines, and the following is the fetching process (C # implementation)
-! [runtime implementation](/images/posts/visualskilleditor/runtime-code.png)
+![runtime implementation](/images/posts/visualskilleditor/runtime-code.png)
 
 ** 2.4 Further optimizations **
 Saving the sequential instruction queue in a binary format can make the instruction load faster, and at the same time, can avoid a lot of unnecessary empty data in the file.
