@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 基于指令集的技能编辑器：编辑器(4)
-categories: 战斗(combat)
+categories: combat
 description: 基于指令集的技能编辑器：编辑器
-keywords: 战斗,combat,skill,editor
+keywords: combat,skill,editor
 ---
 
 ## 内容列表

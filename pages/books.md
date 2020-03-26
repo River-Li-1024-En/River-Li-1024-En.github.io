@@ -1,14 +1,14 @@
 ---
 layout: page
 title: Books
-description: 人越学越觉得自己无知
-keywords: 项目, Books
+description: books
+keywords: Books
 comments: false
-menu: 项目
+menu: books
 permalink: /books/
 ---
 
-> 记多少命令和快捷键会让脑袋爆炸呢？
+> some books
 
 <ul class="listing">
 {% for book in site.books %}

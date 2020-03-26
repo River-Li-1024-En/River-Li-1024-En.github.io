@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 基于指令集的技能编辑器：简介(1)
-categories: 战斗(combat)
+categories: combat
 description: 基于指令集的技能编辑器：简介
-keywords: 战斗,combat,skill,editor
+keywords: combat,skill,editor
 ---
 
 **一种基于指令集的技能编辑器：将技能抽象为基于时间轴的主线（也支持控制逻辑和跳转），通过在时间轴上挂接技能指令的方式来表达技能逻辑。**

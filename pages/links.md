@@ -1,25 +1,33 @@
 ---
 layout: page
 title: Links
-description: 没有链接的博客是孤独的
-keywords: 友情链接
+description: Share links
+keywords: Share links
 comments: true
-menu: 链接
+menu: Share Links
 permalink: /links/
 ---
 
-> God made relatives. Thank God we can choose our friends.
+> Some awesome articles.
 
 {% for link in site.data.links %}
-  {% if link.src == 'life' %}
+  {% if link.src == 'article' %}
 * [{{ link.name }}]({{ link.url }})
   {% endif %}
 {% endfor %}
 
-> 友情链接
+> Some awesome tools.
 
 {% for link in site.data.links %}
-  {% if link.src == 'www' %}
+  {% if link.src == 'tool' %}
+* [{{ link.name }}]({{ link.url }})
+  {% endif %}
+{% endfor %}
+
+> some awesome blog.
+
+{% for link in site.data.links %}
+  {% if link.src == 'blog' %}
 * [{{ link.name }}]({{ link.url }})
   {% endif %}
 {% endfor %}

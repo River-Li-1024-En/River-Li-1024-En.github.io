@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 基于指令集的技能编辑器：运行时(Runtime)(3)
-categories: 战斗(combat)
+categories: combat
 description: 基于指令集的技能编辑器：运行时(Runtime)
-keywords: 战斗,combat,skill,editor
+keywords: combat,skill,editor
 ---
 
 ***技能运行时(Runtime)*** 指一整套的技能加载和运行逻辑结构。作为技能系统的核心，对代码的运行效率、稳健性和扩展能力都有较高的要求。

@@ -1,25 +1,25 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: About Me
+keywords: River
 comments: true
-menu: 关于
+menu: About
 permalink: /about/
 ---
 
-我是李小江(River)，软件工程师，也就是程序员。
+I'm River, a video game engineer.
 
-工作挺久了(12+)，有点经验，主要是游戏开发方向。
+Have been working for 12 years and accumulated some experience in game development.
 
-基础不算差，至少还在坚持学习。
+Hard-working, but still learning.
 
-爱好和平，不极端，还算好相处。
+Engenitic and passionate about my work, and still pursuing better opportunities.
 
-总之，是个好人
+Take pride in being objective about my duty and in being proactive on projects with the goal of delivering excellence.
 
 
-## 联系
+## Contact
 
 {% for website in site.data.social %}
 * {{ website.sitename }}：[@{{ website.name }}]({{ website.url }})
