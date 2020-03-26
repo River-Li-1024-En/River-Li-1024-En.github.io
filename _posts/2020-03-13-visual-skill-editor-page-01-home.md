@@ -1,67 +1,64 @@
 ---
 layout: post
-title: 基于指令集的技能编辑器：简介(1)
+title: Instruction Set-based Skill Editor: Introduction (1)
 categories: combat
-description: 基于指令集的技能编辑器：简介
-keywords: combat,skill,editor
+description: Instruction-based skill editor: Introduction
+keywords: combat, skill, editor
 ---
 
-**一种基于指令集的技能编辑器：将技能抽象为基于时间轴的主线（也支持控制逻辑和跳转），通过在时间轴上挂接技能指令的方式来表达技能逻辑。**
+** A skill editor based on instruction set: abstract skills as the main line based on the timeline (control logic and jumps are also supported), express skill logic by attaching skill instructions on the timeline. **
 
-工程[地址](https://github.com/River-Li-1024/VisualSkillEditor)
-工程[文档wiki](https://github.com/River-Li-1024/VisualSkillEditor/wiki)
+Project [Address](https://github.com/River-Li-1024/VisualSkillEditor)
+Engineering [document wiki](https://github.com/River-Li-1024/VisualSkillEditor/wiki)
 
-## 内容列表
+## Table of contents
 
-- [背景](#背景)
-- [文档](#文档)
-    - [编辑器帮助](https://github.com/River-Li-1024/VisualSkillEditor/wiki/编辑器帮助)
-    - [技能结构和指令集](https://github.com/River-Li-1024/VisualSkillEditor/wiki/技能结构和指令集)
-    - [技能运行时](https://github.com/River-Li-1024/VisualSkillEditor/wiki/技能运行时)
-- [编译](#编译)
+-[Background](#Background)
+-[Documents](#Documents)
+-[Compile](#Compile)
 
-## 背景
+## Background
 
-**为什么需要这样一款编辑器**
-在许多类型的游戏中，良好的技能表现都是游戏的一大卖点。技能系统结构复杂，牵扯到游戏中几乎所有的基础子系统，同时为为上层逻辑提供支持。策划团队往往期望能够以一种直观、独立的方式组织技能逻辑，他们既希望可以自由组合技能逻辑，同时不希望配置过于复杂。这样的矛盾往往会让程序设计走向两个极端：
-1. 一种方式是提供一种可平行扩展的方式，不断特写逻辑以满足个性化需求。这种方式在前期往往表现良好，但当项目规模膨胀到一定程度时，极有可能出现复杂度暴增导致失控的情况；
-2. 另一种方式是把策划需求拆分成尽可能独立的一些子逻辑。这种方式对程序设计人员的业务抽象和代码设计能力要求极高，代码需要持续、谨慎地维护，同时解决冗余和复杂的配置方式也是一大挑战。
+** Why do you need such an editor **
+In many types of games, good skill performance is a big selling point of the game. The structure of the skill system is complex, involving almost all of the basic subsystems in the game, while providing support for the upper-level logic. Planning teams often expect to be able to organize skill logic in an intuitive and independent way. They want to be able to freely combine skill logic, but do not want configuration too complicated. Such contradictions often make program design go to two extremes:
+1. One way is to provide a parallel scalable way, constantly close the logic to meet personalized needs. This method often performs well in the early stage, but when the project scale swells to a certain degree, it is very likely that the complexity will increase and cause out of control;
+2. Another way is to split the planning requirements into sub-logics that are as independent as possible. This approach places high demands on the programmer's business abstraction and code design capabilities. The code needs to be maintained continually and cautiously. At the same time, solving redundant and complex configuration methods is also a major challenge.
 
-针对以上问题，我们引入一种基于指令集的技能系统：将技能抽象为基于时间轴的主线（也支持控制逻辑和跳转），通过在时间轴上挂接技能指令的方式来表达技能逻辑。
+In response to the above problems, we introduce a skill system based on instruction set: abstract skills as the main line based on the time axis (also supports control logic and jumps), and express skill logic by attaching skill instructions on the time axis.
 
-**提供以下特性：**
+** Provides the following features: **
 
-1.  提供30+条指令，全部为瞬发指令，基本满足正交性，各自独立且便于扩展；
-2.  使用xml格式来保存技能逻辑，同时提供一套标准化的解析和执行运行时(额外提供)；
-3.  可视化编辑，在编辑器中拖拽指令和控制结构，一目了然；
+1. Provide 30+ instructions, all of which are instant instructions, basically meet the orthogonality, are independent and easy to expand;
+2. Use xml format to save skill logic, while providing a standardized set of parsing and execution runtimes (extra);
+3. Visual editing, drag and drop instructions and control structures in the editor at a glance;
 
-## 文档
+## Documentation
 
-- [编辑器帮助](https://github.com/River-Li-1024/VisualSkillEditor/wiki/编辑器帮助)
-> 简易的编辑器手册
+-[Editor Help](https://river-li-1024-en.github.io/2020/03/13/visual-skill-editor-page-04-editor)
+> Easy editor manual
 
-- [技能结构和指令集](https://github.com/River-Li-1024/VisualSkillEditor/wiki/技能结构和指令集)
-> 介绍技能段落、指令集和相关的关键设计
+-[Skill Structure and Instruction Set](https://river-li-1024-en.github.io/)
+> Introduce skill paragraphs, instruction sets and related key designs
 
-- [技能运行时](https://github.com/River-Li-1024/VisualSkillEditor/wiki/技能运行时)
-> 技能解析器和执行引擎
+-[Skill Runtime](https://river-li-1024-en.github.io/2020/03/13/visual-skill-editor-page-02-instructions/)
+> Skill parser and execution engine
 
 
-## 编译
+## Compile
 
-下载已生成的版本：
-[Win32版本](https://github.com/River-Li-1024/VisualSkillEditor/tree/master/Versions)
+Download the generated version:
+[Win32 version](https://github.com/River-Li-1024/VisualSkillEditor/tree/master/Versions)
 
 *****
-Visual Studio编译：
-1. 安装环境，参考[Qt环境搭建(Visual Studio)](https://blog.csdn.net/liang19890820/article/details/49874033)
-2. Visual Studio打开工程文件 SkillEditor.sln。
-3. 编译工程，输出到 Bin 目录。
-4. (可选)如果需要迁移到其他环境运行，执行部署文件 Bin/Deploy.cmd (需指定Qt安装目录)。
+Visual Studio compilation:
+1. Installation environment, refer to [Qt Environment Building (Visual Studio)](https://blog.csdn.net/liang19890820/article/details/49874033)
+2. Visual Studio opens the project file SkillEditor.sln.
+3. Compile the project and export it to the Bin directory.
+4. (Optional) If you need to migrate to another environment, run the deployment file Bin / Deploy.cmd (you need to specify the Qt installation directory).
 
 *****
-Qt Creator编译：
-1. 安装Qt，所有Qt版本[下载](http://download.qt.io/archive/qt/)。
-2. Qt打开工程文件 SkillEditor.pro。
-3. 编译工程，输出到Bin目录。
-4. (可选)如果需要迁移到其他环境运行，执行部署文件 Bin/Deploy.cmd(需指定Qt安装目录)。
+Qt Creator compilation:
+1. Install Qt, all Qt versions [download](http://download.qt.io/archive/qt/).
+2. Qt opens the project file SkillEditor.pro.
+3. Compile the project and export it to the Bin directory.
+4. (Optional) If you need to migrate to another environment, run the deployment file Bin / Deploy.cmd (you need to specify the Qt installation directory).
