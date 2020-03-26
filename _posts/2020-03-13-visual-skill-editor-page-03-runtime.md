@@ -1,103 +1,103 @@
 ---
 layout: post
-title: 基于指令集的技能编辑器：运行时(Runtime)(3)
+title: Skill Editor 03: Runtime
 categories: combat
-description: 基于指令集的技能编辑器：运行时(Runtime)
+description: Instruction-based skill editor: Runtime
 keywords: combat,skill,editor
 ---
 
-***技能运行时(Runtime)*** 指一整套的技能加载和运行逻辑结构。作为技能系统的核心，对代码的运行效率、稳健性和扩展能力都有较高的要求。
+*** Skill Runtime *** refers to a complete set of skill loading and running logic structure. As the core of the skill system, it has high requirements for the code's operating efficiency, robustness, and scalability.
 
-实现一套技能运行时往往有几个问题需要提前考虑：
-> 1. 你希望技能运行时是运行在服务器or客户端?
-> 2. 运行环境是否支持从xml中快速加载数据？是否有高效的xml加载库？
-> 3. 运行环境中，内存和Cpu哪个是更稀缺资源？是否需要开启缓存机制？
-> 4. 是否需要支持技能文件的热更新和热加载？
-> 5. 针对这样的核心代码，是否需要搭建一个单元测试环境？
+There are often several issues that need to be considered in advance when implementing a set of skills:
+> 1. Do you want the skill runtime to run on the server or client?
+> 2. Does the operating environment support fast loading of data from xml? Is there an efficient xml loading library?
+> 3. In the operating environment, which of the memory and CPU is the more scarce resource? Do I need to enable the caching mechanism?
+> 4. Do I need to support hot updates and hot reloads of skill files?
+> 5. Is it necessary to build a unit test environment for such core code?
 
-## 内容列表
-- [静态逻辑实现](#静态逻辑实现)
-- [获取源码](#获取源码)
-- [一种新的技能运行时实现](#一种新的技能运行时实现)
+## Table of contents
+-[Implementation](#Implementation)
+-[Source](#Source)
+-[New Implementation](#New Implementation)
 
-## 静态逻辑实现
-以下为一套完整实现的UML类图，如图所示，整个结构划分为3个部分，分别是：
+## Implementation
+The following is a complete set of UML class diagrams. As shown in the figure, the entire structure is divided into 3 parts, which are:
 
-**加载技能数据**
-1. 从xml文件中加载技能指令数据，执行语法检查和基础语义分析，得到一个树型的层次结构（有点类似编译系统中的抽象语法树）;                     
-2. 这个阶段将确保技能数据配置正确，且无明显的语义错误；             
-3. 所有已加载的技能数据将缓存在SkillInstFactory中，提升执行效率；
+** Load Skill Data **
+1. Load skill instruction data from the xml file, perform syntax check and basic semantic analysis, and get a tree-like hierarchical structure (somewhat similar to the abstract syntax tree in a compilation system);
+2. This stage will ensure that the skills data is configured correctly and that there are no obvious semantic errors;
+3. All loaded skill data will be cached in SkillInstFactory to improve execution efficiency;
 
-**技能运行时**
-1. 技能的核心部分，以SkillInst为中心，关联技能指令节点（SkillNode）和上下文数据（SkillInstContext）。                    
-2. 所有指令有4个执行阶段，分别是：Load（加载）, Prepare（初始化）, Execute（执行）, Finish（结束）                    
-3. 上下文数据中保存技能执行过程中的中间数据，也可镜像存储外部环境数据或数据传递的中间过渡区间；                    
-4. 提供2个扩展位，分别是继承SkillNode自定义事件指令，继承SkillCond自定义条件指令。继承时只需实现对于回调接口即可(Template Method模式)。
+** Skill Runtime **
+1. The core part of the skill, centered on SkillInst, associates skill instruction nodes (SkillNode) with context data (SkillInstContext). To be
+2. All instructions have 4 execution phases, which are: Load (Load), Prepare (Initialize), Execute (Finish), Finish (End)
+3. The context data stores intermediate data during the execution of the skill, and it can also mirror the external environment data or the intermediate transition interval of data transmission;
+4. Two extension bits are provided, which are inherited from the SkillNode custom event instruction and inherited from the SkillCond custom condition instruction. When inheriting, you only need to implement the callback interface (Template Method mode).
 
-**调用技能**
-1. 外部环境只需调用SkillInst上的接口即可驱动所有技能                
+** Call Skill **
+1. The external environment only needs to call the interface on SkillInst to drive all the skills.
 
-![静态逻辑实现](/images/posts/visualskilleditor/runtime.png)
+! [Static logic implementation](/images/posts/visualskilleditor/runtime.png)
 
-## 获取源码
-is coming...
+## Source
+is coming ...
 
-## 一种新的技能运行时实现
+## New Implementation
 
-以上运行时环境适用于多数情况，但某些环境下可能会有特殊的需求和限制，如：
->1.加载或解析XML的耗时严重，或者操作系统载入文件到虚拟内存耗时严重，如Android下加载放置在StreamingAssets中的文件，需要到jar包中异步提取；
->2.内存极度稀缺，无法缓存大量的技能数据；
->3.CPU极度稀缺，以上标准的运行时库仍觉得复杂，想要一套更简单的库；
+The above runtime environment is suitable for most situations, but there may be special requirements and restrictions in some environments, such as:
+> 1. It takes a long time to load or parse XML, or it takes a long time for the operating system to load files into virtual memory. For example, under Android, files placed in StreamingAssets need to be asynchronously extracted from the jar package;
+> 2. The memory is extremely scarce and cannot cache a large amount of skill data;
+> 3. The CPU is extremely scarce. The above standard runtime libraries still feel complicated and want a simpler library;
 
-#### 1.一种类似处理器指令集的实现方式：
-在处理器执行CPU指令前，编译器针对抽象语法树，展平其控制语句为顺序指令队列，并在其上完成符号解析和重定位，使得执行引擎只需逐条顺序执行即可，同时无需解析数据（类似汇编代码）。使得后续技能运行时只需逐条顺序执行指令即可，无需管理配置数据和递归执行语法树。将xml文件转换为txt格式的二维顺序指令队列，如下图所示：
+#### 1. An implementation similar to the processor instruction set:
+Before the processor executes the CPU instruction, the compiler flattens its control statement into a sequential instruction queue for the abstract syntax tree, and completes the symbol resolution and relocation on it, so that the execution engine only needs to execute the sequence one by one without parsing. Data (similar to assembly code). This allows subsequent instructions to be executed one by one in order to manage the configuration data and recursively execute the syntax tree. Convert the xml file to a two-dimensional sequential instruction queue in txt format, as shown in the figure below:
 
-![顺序指令文件](/images/posts/visualskilleditor/sequences.png)
+! [Sequence instruction file](/images/posts/visualskilleditor/sequences.png)
 
-> 关于CPU指令集可[参考](https://en.wikipedia.org/wiki/Instruction_set_architecture)
-> 关于编译器链接过程可[参考](https://en.wikipedia.org/wiki/Linker_(computing)#Relocation)
-> 关于CPU流水线可[参考](https://en.wikipedia.org/wiki/Instruction_pipelining)
+> About CPU instruction set [reference](https://en.wikipedia.org/wiki/Instruction_set_architecture)
+> The compiler link process can be [reference] (https://en.wikipedia.org/wiki/Linker_ (computing) #Relocation)
+> CPU reference can be [reference](https://en.wikipedia.org/wiki/Instruction_pipelining)
 
-#### 2.实现过程（所有过程通过技能编辑器工具完成）
-**2.1 展平控制语句**
+#### 2. Implementation process (all processes are done by the skill editor tool)
+** 2.1 Flatten Control Statements **
 
-所有if/while/for/switch控制语句都可用goto实现，以下分别是if, do-while, while, for, switch的跳转指令版本：
-![控制语句](/images/posts/visualskilleditor/control-flow.png)
+All if/while/for/switch control statements can be implemented with goto. The following are the jump instruction versions of if, do-while, while, for, and switch:
+! [Control statement](/images/posts/visualskilleditor/control-flow.png)
 
-实现算法可参考编辑器源码 
-``` cpp
-bool serializeNode(SkillScriptNodePtr nodePtr, SkillScriptNodePtr  nextNodePtr, QList<SkillScriptNodePtr>& list);
-```
+The implementation algorithm can refer to the editor source code
+`` `cpp
+bool serializeNode (SkillScriptNodePtr nodePtr, SkillScriptNodePtr and nextNodePtr, QList <SkillScriptNodePtr> & list);
+`` `
 
-**2.2 符号解析和重定位**
+** 2.2 Symbol resolution and relocation **
 
-符号解析：解析所有指令参数和技能动态参数，抽取其值作为指令参数；
-重定位：为所有指令生成唯一id（类似绝对地址），同时将跳转指令的目的地址（指令的唯一id）替换为绝对地址（唯一id）；
-最终结果如上图txt文件实现算法可参考编辑器源码 
-```cpp
-void syncCurSkillAction(SkillInstDataPtr instDataPtr);
-```
+Symbol analysis: analyze all command parameters and skill dynamic parameters, and extract their values ​​as command parameters;
+Relocation: Generate a unique id (similar to an absolute address) for all instructions, and replace the destination address of the jump instruction (the unique id of the instruction) with an absolute address (the unique id);
+The final result is shown in the figure above. The implementation algorithm of the txt file can refer to the source code of the editor.
+`` `cpp
+void syncCurSkillAction (SkillInstDataPtr instDataPtr);
+`` `
 
-**2.3 技能运行时（Runtime）**
+** 2.3 Skill Runtime **
 
-实现方式类似cpu执行指令过程，可将其划分成以下几个阶段：
+The implementation is similar to the CPU execution instruction process, which can be divided into the following stages:
 
-**取指fetch：**
-> 1.根据程序计数器(PC)的值，从指令队列中读取指令行；    
-> 2.计算下一指令的地址
+** Fetching fetch: **
+> 1. Read the instruction line from the instruction queue according to the value of the program counter (PC);
+> 2. Calculate the address of the next instruction
 
-**译码decode：**   
-> 1.解析指令行数据，定位到具体指令执行体执行execute：    
+** decode: **
+> 1. Parse the command line data and locate the specific instruction execution body to execute:
 
-**执行指令体：**
-> 1.更新状态数据到上下文结构中；    
-> 2.对于传送指令和跳转指令，可能更新下一指令地址；
+** Execution instruction body: **
+> 1. Update the status data into the context structure;
+> 2. For transfer instructions and jump instructions, the next instruction address may be updated;
 
-**更新 update：**
-> 1.计算下一条指令的地址
+** Update update: **
+> 1. Calculate the address of the next instruction
 
-此算法非常简单，代码不超过200行，以下是截取的取指过程(C#实现)
-![runtime实现](/images/posts/visualskilleditor/runtime-code.png)
+This algorithm is very simple, the code does not exceed 200 lines, and the following is the fetching process (C # implementation)
+! [runtime implementation](/images/posts/visualskilleditor/runtime-code.png)
 
-**2.4 更进一步的优化**
-将顺序指令队列保存为二进制格式，可使得指令的加载速率更高，同时，可避免文件中大量不必要的空数据。
+** 2.4 Further optimizations **
+Saving the sequential instruction queue in a binary format can make the instruction load faster, and at the same time, can avoid a lot of unnecessary empty data in the file.

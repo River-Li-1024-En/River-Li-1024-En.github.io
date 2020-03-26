@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Instruction Set-based Skill Editor: Introduction (1)
+title: Skill Editor 01: Introduction
 categories: combat
 description: Instruction-based skill editor: Introduction
-keywords: combat, skill, editor
+keywords: combat,skill,editor
 ---
 
 **A skill editor based on instruction set: abstract skills as the main line based on the timeline (control logic and jumps are also supported), express skill logic by attaching skill instructions on the timeline.**
@@ -54,11 +54,11 @@ Visual Studio compilation:
 1. Installation environment, refer to [Qt Environment Building (Visual Studio)](https://blog.csdn.net/liang19890820/article/details/49874033)
 2. Visual Studio opens the project file SkillEditor.sln.
 3. Compile the project and export it to the Bin directory.
-4. (Optional) If you need to migrate to another environment, run the deployment file Bin / Deploy.cmd (you need to specify the Qt installation directory).
+4. (Optional) If you need to migrate to another environment, run the deployment file Bin/Deploy.cmd (you need to specify the Qt installation directory).
 
 *****
 Qt Creator compilation:
 1. Install Qt, all Qt versions [download](http://download.qt.io/archive/qt/).
 2. Qt opens the project file SkillEditor.pro.
 3. Compile the project and export it to the Bin directory.
-4. (Optional) If you need to migrate to another environment, run the deployment file Bin / Deploy.cmd (you need to specify the Qt installation directory).
+4. (Optional) If you need to migrate to another environment, run the deployment file Bin/Deploy.cmd (you need to specify the Qt installation directory).
