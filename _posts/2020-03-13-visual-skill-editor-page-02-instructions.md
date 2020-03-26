@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Skill Editor 02 - Skill Structure and Instruction Set
-categories: combat
-description: Instruction set-based skill editor: skill structure and instruction set
+categories: Combat
+description: 
 keywords: combat,skill,editor
 ---
 

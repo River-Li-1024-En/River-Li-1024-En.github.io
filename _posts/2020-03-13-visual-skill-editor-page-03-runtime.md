@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Skill Editor 03 - Runtime
-categories: combat
-description: Instruction-based skill editor: Runtime
+categories: Combat
+description: 
 keywords: combat,skill,editor
 ---
 
