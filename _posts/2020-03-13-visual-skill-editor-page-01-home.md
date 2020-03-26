@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introduction
+title: Skill Editor-Introduction
 categories: Combat
 description: 
 keywords: combat,skill,editor
