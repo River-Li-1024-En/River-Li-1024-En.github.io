@@ -19,7 +19,7 @@ Engineering [document wiki](https://github.com/River-Li-1024/VisualSkillEditor/w
 
 ## Background
 
-** Why do you need such an editor **
+**Why do you need such an editor**
 > In many types of games, good skill performance is a big selling point of the game. The structure of the skill system is complex, involving almost all of the basic subsystems in the game, while providing support for the upper-level logic. Planning teams often expect to be able to organize skill logic in an intuitive and independent way. They want to be able to freely combine skill logic, but do not want configuration too complicated. Such contradictions often make program design go to two extremes:
 1. One way is to provide a parallel scalable way, constantly close the logic to meet personalized needs. This method often performs well in the early stage, but when the project scale swells to a certain degree, it is very likely that the complexity will increase and cause out of control;
 2. Another way is to split the planning requirements into sub-logics that are as independent as possible. This approach places high demands on the programmer's business abstraction and code design capabilities. The code needs to be maintained continually and cautiously. At the same time, solving redundant and complex configuration methods is also a major challenge.
