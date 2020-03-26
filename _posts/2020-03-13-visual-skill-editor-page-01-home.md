@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Skill Editor 01: Introduction
-categories: combat
-description: Instruction-based skill editor: Introduction
+title: Introduction
+categories: Combat
+description: 
 keywords: combat,skill,editor
 ---
 
