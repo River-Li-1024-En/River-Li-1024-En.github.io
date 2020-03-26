@@ -6,7 +6,7 @@ description: Instruction-based skill editor: Introduction
 keywords: combat, skill, editor
 ---
 
-** A skill editor based on instruction set: abstract skills as the main line based on the timeline (control logic and jumps are also supported), express skill logic by attaching skill instructions on the timeline. **
+**A skill editor based on instruction set: abstract skills as the main line based on the timeline (control logic and jumps are also supported), express skill logic by attaching skill instructions on the timeline.**
 
 Project [Address](https://github.com/River-Li-1024/VisualSkillEditor)
 Engineering [document wiki](https://github.com/River-Li-1024/VisualSkillEditor/wiki)
@@ -20,13 +20,13 @@ Engineering [document wiki](https://github.com/River-Li-1024/VisualSkillEditor/w
 ## Background
 
 ** Why do you need such an editor **
-In many types of games, good skill performance is a big selling point of the game. The structure of the skill system is complex, involving almost all of the basic subsystems in the game, while providing support for the upper-level logic. Planning teams often expect to be able to organize skill logic in an intuitive and independent way. They want to be able to freely combine skill logic, but do not want configuration too complicated. Such contradictions often make program design go to two extremes:
+> In many types of games, good skill performance is a big selling point of the game. The structure of the skill system is complex, involving almost all of the basic subsystems in the game, while providing support for the upper-level logic. Planning teams often expect to be able to organize skill logic in an intuitive and independent way. They want to be able to freely combine skill logic, but do not want configuration too complicated. Such contradictions often make program design go to two extremes:
 1. One way is to provide a parallel scalable way, constantly close the logic to meet personalized needs. This method often performs well in the early stage, but when the project scale swells to a certain degree, it is very likely that the complexity will increase and cause out of control;
 2. Another way is to split the planning requirements into sub-logics that are as independent as possible. This approach places high demands on the programmer's business abstraction and code design capabilities. The code needs to be maintained continually and cautiously. At the same time, solving redundant and complex configuration methods is also a major challenge.
 
 In response to the above problems, we introduce a skill system based on instruction set: abstract skills as the main line based on the time axis (also supports control logic and jumps), and express skill logic by attaching skill instructions on the time axis.
 
-** Provides the following features: **
+**Provides the following features:**
 
 1. Provide 30+ instructions, all of which are instant instructions, basically meet the orthogonality, are independent and easy to expand;
 2. Use xml format to save skill logic, while providing a standardized set of parsing and execution runtimes (extra);
