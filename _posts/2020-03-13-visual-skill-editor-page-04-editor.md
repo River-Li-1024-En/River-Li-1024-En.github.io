@@ -2,7 +2,7 @@
 layout: post
 title: Skill Editor 04 - Editor
 categories: Combat
-description: Instruction set-based skill editor: editor
+description: 
 keywords: combat,skill,editor
 ---
 
