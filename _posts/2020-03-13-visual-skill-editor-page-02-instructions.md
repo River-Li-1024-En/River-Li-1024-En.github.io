@@ -76,6 +76,7 @@ Use the following instructions to jump to the custom logic;
 ```xml
 <action id = "gotosection" eventid = "sec_name" />
 ```
+
 > Custom sections have multiple uses, which are equivalent to functions or procedures in the language, which can express the logic of jumps and reuse local logic;
 
 ### How to implement parallel logic

@@ -15,16 +15,16 @@ keywords: combat,skill,editor
 ![Main interface](/images/posts/visualskilleditor/editor-main.png)
 
 The role of each part in the editing interface is as follows:
-+**Skill List:**
++ **Skill List:**
 Load all skill rows from the SkillInst.txt table for quick indexing;
 
-+**Skill Tree:**
++ **Skill Tree:**
 The xml file of a single skill is represented as a tree structure, and nodes can be added and deleted and the hierarchical relationship can be adjusted;
 
-+**Instruction parameters:**
++ **Instruction parameters:**
 Parameter information of a single skill node, all parameters are obtained from the configuration file (SkillConfig.xml), and the dynamic parameters can be indexed;
 
-+**Skill dynamic parameters:**
++ **Skill dynamic parameters:**
 Some data independent and skill logic is used to separate skill logic and data. The data is stored in the dynamic parameter area of ​​SkillInst.txt according to the skill id;
 
 
