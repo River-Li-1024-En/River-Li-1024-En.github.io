@@ -68,7 +68,7 @@ More importantly, once the bullet time (slow-speed close-up) function needs to b
 ### How to express conditional control statements
 > The conditional statement itself is a node in an xml, but there are two ways to express the condition: One is to save the condition as a node's attribute. This method is feasible and concise, but the meaning of the condition parameter is difficult to describe. (General attribute); Another way is to save the condition as a child of the node. I choose this method here because the way of child nodes is more conducive to expansion and organization.
 > An if/elseif/else structure is represented as (corresponding to a select instruction):
-> [select statement](/images/posts/visualskilleditor/select.png)
+> ![select statement](/images/posts/visualskilleditor/select.png)
 
 ### How to implement goto to a custom section
 > Put a custom section into the section node, as shown in the "Skill logic structure" above. The execution flow is jumped by the gotosection instruction (the logic of the original execution flow is no longer executed).
