@@ -13,7 +13,7 @@ keywords: combat,skill,editor
 -[Parameter](#Parameter)  
 -[Q&A](#Q&A)  
 
-## Paragraph
+## Section
 
 The logic of skills is divided into 7 sections, which are:
 + Section-start: onstart, which indicates the start of the skill, only execute once, and then start executing other sections after completion;
@@ -72,7 +72,8 @@ More importantly, once the bullet time (slow-speed close-up) function needs to b
 
 ### How to implement goto to a custom section
 > Put a custom section into the section node, as shown in the "Skill logic structure" above. The execution flow is jumped by the gotosection instruction (the logic of the original execution flow is no longer executed).
-Use the following instructions to jump to the custom logic;
+Use the following instructions to jump to the custom logic;  
+
 ```xml
 <action id = "gotosection" eventid = "sec_name" />
 ```
@@ -82,7 +83,8 @@ Use the following instructions to jump to the custom logic;
 ### How to implement parallel logic
 > Sometimes you want your skills to run in multiple timelines in parallel, as shown below:
 >![Parallel](/images/posts/visualskilleditor/concurrent.png)
-> The sendevent (trigger event) instruction can achieve this function, and the logic that needs to run concurrently is organized as an on node, as shown in the "skill logic structure" in the figure above. This instruction can also be used to send various instructions to the game to trigger other game systems, such as scene effects, plot logic, etc .; the following instructions can be used to trigger parallel logic in parallel;
+> The sendevent (trigger event) instruction can achieve this function, and the logic that needs to run concurrently is organized as an on node, as shown in the "skill logic structure" in the figure above. This instruction can also be used to send various instructions to the game to trigger other game systems, such as scene effects, plot logic, etc .; the following instructions can be used to trigger parallel logic in parallel;  
+
 ```xml
 <action id = "sendevent" eventid = "evt_name" />
 ```

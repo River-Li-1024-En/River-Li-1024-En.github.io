@@ -73,7 +73,8 @@ bool serializeNode (SkillScriptNodePtr nodePtr, SkillScriptNodePtr and nextNodeP
 
 Symbol analysis: analyze all command parameters and skill dynamic parameters, and extract their values ​​as command parameters;
 Relocation: Generate a unique id (similar to an absolute address) for all instructions, and replace the destination address of the jump instruction (the unique id of the instruction) with an absolute address (the unique id);
-The final result is shown in the figure above. The implementation algorithm of the txt file can refer to the source code of the editor.
+The final result is shown in the figure above. The implementation algorithm of the txt file can refer to the source code of the editor.  
+
 ```cpp
 void syncCurSkillAction (SkillInstDataPtr instDataPtr);
 ```
