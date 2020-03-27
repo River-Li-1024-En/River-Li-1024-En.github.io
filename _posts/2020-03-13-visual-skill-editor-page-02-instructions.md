@@ -8,10 +8,10 @@ keywords: combat,skill,editor
 
 ## Table of contents
 
--[Section](#Section)
--[Instruction](#Instruction)
--[Parameter](#Parameter)
--[Q&A](#Q&A)
+-[Section](#Section)  
+-[Instruction](#Instruction)  
+-[Parameter](#Parameter)  
+-[Q&A](#Q&A)  
 
 ## Paragraph
 

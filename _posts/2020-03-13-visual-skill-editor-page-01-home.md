@@ -13,9 +13,9 @@ Engineering [document wiki](https://github.com/River-Li-1024/VisualSkillEditor/w
 
 ## Table of contents
 
--[Background](#Background)
--[Documents](#Documents)
--[Compile](#Compile)
+-[Background](#Background)  
+-[Documents](#Documents)  
+-[Compile](#Compile)  
 
 ## Background
 

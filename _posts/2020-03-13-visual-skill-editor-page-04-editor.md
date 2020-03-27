@@ -8,8 +8,8 @@ keywords: combat,skill,editor
 
 ## Table of contents
 
--[Main](#Main)
--[Instruction Set](#Instruction-Set)
+-[Main](#Main)  
+-[Instruction Set](#Instruction-Set)  
 
 ## Main
 ![Main interface](/images/posts/visualskilleditor/editor-main.png)

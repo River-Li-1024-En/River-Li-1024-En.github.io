@@ -16,9 +16,9 @@ There are often several issues that need to be considered in advance when implem
 > 5. Is it necessary to build a unit test environment for such core code?
 
 ## Table of contents
--[Implementation](#Implementation)
--[Source](#Source)
--[New Implementation](#New Implementation)
+-[Implementation](#Implementation)  
+-[Source](#Source)  
+-[New-Implementation](#New-Implementation)  
 
 ## Implementation
 The following is a complete set of UML class diagrams. As shown in the figure, the entire structure is divided into 3 parts, which are:
@@ -42,7 +42,7 @@ The following is a complete set of UML class diagrams. As shown in the figure, t
 ## Source
 is coming ...
 
-## New Implementation
+## New-Implementation
 
 The above runtime environment is suitable for most situations, but there may be special requirements and restrictions in some environments, such as:
 > 1. It takes a long time to load or parse XML, or it takes a long time for the operating system to load files into virtual memory. For example, under Android, files placed in StreamingAssets need to be asynchronously extracted from the jar package;
