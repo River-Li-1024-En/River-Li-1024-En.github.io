@@ -8,8 +8,8 @@ keywords: combat,skill,editor
 
 **A skill editor based on instruction set: abstract skills as the main line based on the timeline (control logic and jumps are also supported), express skill logic by attaching skill instructions on the timeline.**
 
-Project [Address](https://github.com/River-Li-1024/VisualSkillEditor)
-Engineering [document wiki](https://github.com/River-Li-1024/VisualSkillEditor/wiki)
+Project [Address](https://github.com/River-Li-1024/VisualSkillEditor)  
+Engineering [document wiki](https://github.com/River-Li-1024/VisualSkillEditor/wiki)  
 
 ## Table of contents
 
